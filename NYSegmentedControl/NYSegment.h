@@ -18,4 +18,6 @@
 
 - (instancetype)initWithTitle:(NSString *)title;
 
+@property (nonatomic, assign) UIEdgeInsets textInsets;
+
 @end

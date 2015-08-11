@@ -26,8 +26,8 @@
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-    // Draw text normally
-    [super drawTextInRect:rect];
+    // Draw text respecting the insets
+    [super drawTextInRect:UIEdgeInsetsInsetRect(rect, self.textInsets)];
 
     if (self.alternativeTextColor) {
         CGImageRef mask = NULL;

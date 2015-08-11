@@ -33,9 +33,15 @@ static CGFloat const kMinimumSegmentWidth = 68.0f;
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.titleLabel.adjustsFontSizeToFitWidth = YES;
         self.titleLabel.minimumScaleFactor = 0.5;
+        self.titleLabel.textInsets = _textInsets;
         [self addSubview:self.titleLabel];
     }
     return self;
+}
+
+- (void)setTextInsets:(UIEdgeInsets)textInsets {
+    _textInsets = textInsets;
+    self.titleLabel.textInsets = textInsets;
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {

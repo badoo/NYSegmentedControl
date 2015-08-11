@@ -80,6 +80,7 @@
     _selectedTitleTextColor = [UIColor blackColor];
     _stylesTitleForSelectedSegment = YES;
     _segmentIndicatorInset = 0.0f;
+    _segmentLabelInsets = UIEdgeInsetsZero;
     _segmentIndicatorAnimationDuration = 0.15f;
     _gradientTopColor = [UIColor colorWithRed:0.21f green:0.21f blue:0.21f alpha:1.0f];
     _gradientBottomColor = [UIColor colorWithRed:0.16f green:0.16f blue:0.16f alpha:1.0f];
@@ -128,6 +129,7 @@
         for (int i = 0; i < numberOfSegments; i++) {
             NSString *title = [self.dataSource segmentedControl:self titleAtIndex:i];
             NYSegment *segment = [[NYSegment alloc] initWithTitle:title];
+            segment.textInsets = self.segmentLabelInsets;
             [self addSubview:segment];
             [segmentsArray addObject:segment];
         }
@@ -186,6 +188,8 @@
             segment.titleLabel.font = self.titleFont;
             segment.titleLabel.textColor = self.titleTextColor;
         }
+        
+        segment.textInsets = self.segmentLabelInsets;
     }
     
     self.selectedSegmentIndicator.frame = [self indicatorFrameForSegment:self.segments[self.selectedSegmentIndex]];
@@ -456,6 +460,11 @@
 - (void)setSegmentIndicatorInset:(CGFloat)segmentIndicatorInset {
     _segmentIndicatorInset = segmentIndicatorInset;
     self.selectedSegmentIndicator.cornerRadius = self.cornerRadius * ((self.frame.size.height - self.segmentIndicatorInset * 2) / self.frame.size.height);
+    [self setNeedsLayout];
+}
+
+- (void)setSegmentLabelInsets:(UIEdgeInsets)segmentLabelInsets {
+    _segmentLabelInsets = segmentLabelInsets;
     [self setNeedsLayout];
 }
 

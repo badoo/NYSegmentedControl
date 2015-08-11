@@ -98,6 +98,11 @@
 @property (nonatomic) CGFloat segmentIndicatorInset UI_APPEARANCE_SELECTOR;
 
 /**
+ *  The insets to apply to the rendering of a segment label. Default is UIEdgeInsetsZero
+ */
+@property (nonatomic) UIEdgeInsets segmentLabelInsets UI_APPEARANCE_SELECTOR;
+
+/**
  If YES, the selected segment indicator will be drawn with a background gradient specified by the selectedSegmentIndicatorGradientTopColor and selectedSegmentIndicatorGradientBottomColor properties.  If set to NO, the indicator will be filled with the color specified by the selectedSegmentIndicatorBackgroundColor property. The default value is YES.
  
  @see segmentIndicatorGradientTopColor
