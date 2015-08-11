@@ -31,6 +31,8 @@ static CGFloat const kMinimumSegmentWidth = 68.0f;
         self.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.backgroundColor = [UIColor clearColor];
+        self.titleLabel.adjustsFontSizeToFitWidth = YES;
+        self.titleLabel.minimumScaleFactor = 0.5;
         [self addSubview:self.titleLabel];
     }
     return self;
